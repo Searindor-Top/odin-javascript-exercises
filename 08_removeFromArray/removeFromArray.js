@@ -1,17 +1,9 @@
-const removeFromArray = function(array, elementToRemove, elementToRemove2 = '', elementToRemove3 = '', elementToRemove4 = '') {
+const removeFromArray = function(array, ...args) {
     let outputArray = array.slice();
 
-    outputArray = outputArray.filter(element => element !== elementToRemove);
-    if(elementToRemove2 !== ''){
-        outputArray = outputArray.filter(element => element !== elementToRemove2);
-    }
-    if(elementToRemove3 !== ''){
-        outputArray = outputArray.filter(element => element !== elementToRemove3);
-    }
-    if(elementToRemove4 !== ''){
-        outputArray = outputArray.filter(element => element !== elementToRemove4);
-    }
-    
+    outputArray = outputArray.filter(element => !args.includes(element)); // Quiero que me devuelvas solo los elementos que no esten
+                                                                          // en la coleccion de elementos proporcionada por args
+                                                                          
     return outputArray;
 };
 
